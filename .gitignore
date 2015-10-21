@@ -10,6 +10,9 @@
 # rbenv
 .ruby-version
 
+# RubyMine
+/.idea
+
 # ログファイルや一時ファイル
 /log/*
 !/log/.keep
