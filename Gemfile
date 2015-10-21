@@ -1,47 +1,117 @@
 source 'https://rubygems.org'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Ruby と rails のバージョンは最新でメンテナンスしたい
+ruby '2.2.3'
 gem 'rails', '4.2.4'
-# Use postgresql as the database for Active Record
+
+# Heroku にデプロイするため、ORDBMS に PostgreSQL を選択する
 gem 'pg'
-# Use SCSS for stylesheets
+
+# スタイルシートに SCSS を使用する
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
+
+# 一旦 bootstrap でスタイリングする
+gem 'bootstrap-sass'
+
+# スタイルシートのベンダープレフィックスに自動で対応してくれる
+gem 'autoprefixer-rails'
+
+# JavaScript のホワイトスペースを削除したり、条件分岐を条件演算子に変更したりで圧縮する
+# config/environments/production.rb の config.assets.js_compressor = :uglifier で活性
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
+
+# Assets と View で CoffeeScript を使用する
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
+
+# JavaScript のエンジン V8 を Ruby から利用する
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
+# JavaScript のライブラリ jQuery を使用する
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+
+# ページの移動をAjaxに置き換えることで、JavaScriptやCSSの読み込みを省略して高速化する
 gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
+# JSON 形式でレスポンスを出力してくれるテンプレートエンジンを利用する
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
+
+# 'bundle exec rake doc:rails' で doc/api にドキュメントを生成する
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# 日本語にしか対応する予定はないが、文字列定義をコードから引き離すために利用する
+gem 'rails-i18n'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# テンプレートエンジンは erb ではなく slim を使用する
+gem 'slim-rails'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
+# 'bundle exec annotate' コマンドで各ファイルに schema 情報などをコメントする
+gem 'annotate'
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # n + 1 問題を検出する
+  gem 'bullet'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # コーディングルールの準拠チェックを実施する
+  gem 'rubocop'
+
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+
+  # better_errors の画面上に irb/pry(PERL) を表示する
+  gem 'binding_of_caller'
 end
 
+group :development, :test do
+  # rails c で起動する対話式コンソールを irb から pry に変更する
+  gem 'pry-rails'
+
+  # binding.pry コールした場所がブレークポイントとなる
+  gem 'pry-byebug'
+
+  # エラーページからインタラクティブに Consle 操作できる
+  gem 'web-console', '~> 2.0'
+
+  # アプリケーションプリローダー
+  gem 'spring'
+
+  # アセットパイプラインのログを表示しない
+  gem 'quiet_assets'
+
+  # テストフレームワーク
+  gem 'rspec-rails'
+
+  # テストの実行時間を短縮してくれるテスト用サーバーを使用する
+  gem 'spork-rails'
+
+  # guard-spork を使うときに発生する問題を解決してくれる
+  gem 'childprocess'
+
+  # ファイルシステムの変更イベントを監視する
+  gem 'guard'
+
+  # ファイルの保存時に自動で rspec を実行する
+  gem 'guard-rspec'
+
+  # ファイルの保存時に自動的で ruboocop を実行する
+  gem 'guard-rubocop'
+
+  # Guard で自動的に Spork を再ロードする
+  gem 'guard-spork'
+
+  # テストオブジェクトを作成する
+  gem 'factory_girl_rails'
+
+  # RSpec を Spring 上で起動する
+  gem 'spring-commands-rspec'
+end
+
+group :test do
+  # ユーザーとアプリケーションのやり取りをシミュレートする(フィーチャーテスト)
+  gem 'capybara'
+
+  # RSpec でのテストを強力にサポートしてくれるマッチャー集
+  gem 'shoulda-matchers', require: false
+
+  # コードのカバレッジを計測する
+  gem 'simplecov', require: false
+end
