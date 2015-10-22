@@ -1,0 +1,18 @@
+AllCops:
+  RunRailsCops: true
+
+# Missing top-level class documentation comment.
+Documentation:
+  Enabled: false
+
+# Use only ascii symbols in comments.
+AsciiComments:
+  Enabled: false
+
+# Line is too long.
+Metrics/LineLength:
+  Max: 128
+
+# Do not use block comments.
+Style/BlockComments:
+  Enabled: false
