@@ -98,6 +98,9 @@ group :development, :test do
   # Guard で自動的に Spork を再ロードする
   gem 'guard-spork'
 
+  # Guard に OS の通知センターを利用させる
+  gem 'terminal-notifier-guard'
+
   # テストオブジェクトを作成する
   gem 'factory_girl_rails'
 
