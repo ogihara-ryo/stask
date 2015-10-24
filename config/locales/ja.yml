@@ -20,3 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ja:
+  label_setting_categories: カテゴリー設定
