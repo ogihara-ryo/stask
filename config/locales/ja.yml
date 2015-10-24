@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ja:
-  label_setting_categories: カテゴリー設定
+  title_setting_categories: カテゴリー設定
+
+  activerecord:
+    attributes:
+      category:
+        name: 名称
+        color: 背景色
