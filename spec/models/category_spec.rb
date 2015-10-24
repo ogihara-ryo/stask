@@ -3,6 +3,7 @@
 # Table name: categories
 #
 #  id         :integer          not null, primary key
+#  number     :integer          not null
 #  name       :string           not null
 #  color      :string
 #  created_at :datetime         not null
