@@ -1,5 +1,7 @@
 AllCops:
   RunRailsCops: true
+  Exclude:
+    - db/schema.rb
 
 # Missing top-level class documentation comment.
 Documentation:
@@ -16,3 +18,4 @@ Metrics/LineLength:
 # Do not use block comments.
 Style/BlockComments:
   Enabled: false
+
