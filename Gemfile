@@ -80,12 +80,6 @@ group :development, :test do
   # テストフレームワーク
   gem 'rspec-rails'
 
-  # テストの実行時間を短縮してくれるテスト用サーバーを使用する
-  gem 'spork-rails'
-
-  # guard-spork を使うときに発生する問題を解決してくれる
-  gem 'childprocess'
-
   # ファイルシステムの変更イベントを監視する
   gem 'guard'
 
@@ -94,9 +88,6 @@ group :development, :test do
 
   # ファイルの保存時に自動的で ruboocop を実行する
   gem 'guard-rubocop'
-
-  # Guard で自動的に Spork を再ロードする
-  gem 'guard-spork'
 
   # Guard に OS の通知センターを利用させる
   gem 'terminal-notifier-guard'
