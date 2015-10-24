@@ -14,6 +14,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   describe 'メンバー定義' do
     it { is_expected.to respond_to(:id) }
+    it { is_expected.to respond_to(:number) }
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:color) }
     it { is_expected.to respond_to(:created_at) }
