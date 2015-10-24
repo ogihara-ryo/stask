@@ -24,4 +24,10 @@ RSpec.describe Category, type: :model do
   describe 'アソシエーション' do
     it { is_expected.to have_many(:tasks) }
   end
+
+  describe 'スコープ' do
+    it 'デフォルトの並び順が number の昇順であること' do
+      expect(Category.all.to_sql).to eq Category.unscoped.order(:number).to_sql
+    end
+  end
 end
