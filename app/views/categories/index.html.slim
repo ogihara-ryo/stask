@@ -4,9 +4,11 @@ h1.page-header == yield(:title)
 
 table.table
   tr
+    th = t 'activerecord.attributes.category.number'
     th = t 'activerecord.attributes.category.name'
     th = t 'activerecord.attributes.category.color'
     - @categories.each do |category|
       tr style=("background-color: #{category.color};")
+        td = category.number
         td = category.name
         td = category.color
