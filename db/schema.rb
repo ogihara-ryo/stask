@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151024035520) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.integer  "id_per_days",   null: false
     t.date     "target",        null: false
     t.string   "name",          null: false
     t.integer  "priority"

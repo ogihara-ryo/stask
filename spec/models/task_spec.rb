@@ -19,6 +19,7 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   describe 'メンバー定義' do
     it { is_expected.to respond_to(:id) }
+    it { is_expected.to respond_to(:id_per_days) }
     it { is_expected.to respond_to(:target) }
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:priority) }
