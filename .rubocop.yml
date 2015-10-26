@@ -19,3 +19,7 @@ Metrics/LineLength:
 Style/BlockComments:
   Enabled: false
 
+# Method has too many lines
+MethodLength:
+  Exclude:
+    - db/migrate/*
