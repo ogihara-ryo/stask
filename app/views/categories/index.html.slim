@@ -9,6 +9,8 @@ h1 == yield(:title)
         - @category.errors.full_messages.each do |msg|
           li = msg
   .form-group
+    = f.number_field :id, {class: :'form-control', placeholder: t('activerecord.attributes.category.id')}
+  .form-group
     = f.number_field :number, {class: :'form-control', placeholder: t('activerecord.attributes.category.number')}
   .form-group
     = f.text_field :name, {class: :'form-control', placeholder: t('activerecord.attributes.category.name')}

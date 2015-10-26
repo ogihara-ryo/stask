@@ -25,6 +25,7 @@ ja:
   activerecord:
     attributes:
       category:
+        id: ID
         number: 順番
         name: 名称
         color: 背景色
