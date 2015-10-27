@@ -15,6 +15,10 @@ AsciiComments:
 Metrics/LineLength:
   Max: 128
 
+# Use && instead of and.
+Style/AndOr:
+  EnforcedStyle: conditionals
+
 # Do not use block comments.
 Style/BlockComments:
   Enabled: false
