@@ -3,6 +3,7 @@
 # Table name: tasks
 #
 #  id            :integer          not null, primary key
+#  id_per_days   :integer          not null
 #  target        :date             not null
 #  name          :string           not null
 #  priority      :integer
