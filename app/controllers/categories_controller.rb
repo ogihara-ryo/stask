@@ -1,7 +1,13 @@
 class CategoriesController < ApplicationController
+  before_action :set_categories, only: %i(index create)
+
   def index
-    @categories = Category.all
     @category = Category.new
+  end
+
+  def create
+    @category = Category.find_by(id: category_params[:id]) || Category.new
+    @category.update_attributes(category_params)
   end
 
   def set_id
@@ -11,5 +17,15 @@ class CategoriesController < ApplicationController
     else
       render nothing: true
     end
+  end
+
+  private
+
+  def set_categories
+    @categories = Category.all
+  end
+
+  def category_params
+    params.require(:category).permit(:id, :number, :name, :color)
   end
 end

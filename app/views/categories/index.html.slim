@@ -2,7 +2,7 @@
 
 h1 == yield(:title)
 
-= form_for @category, html: { class: :'well form-inline' } do |f|
+= form_for(@category, html: { class: :'well form-inline' }, remote: true) do |f|
   - if @category.errors.any?
     .alert.alert-danger
       ul
@@ -18,13 +18,5 @@ h1 == yield(:title)
     = f.color_field :color, { class: :'form-control', placeholder: t('activerecord.attributes.category.color') }
   = f.submit class: :'btn btn-primary'
 
-table.table
-  tr
-    th = t 'activerecord.attributes.category.number'
-    th = t 'activerecord.attributes.category.name'
-    th = t 'activerecord.attributes.category.color'
-    - @categories.each do |category|
-      tr style=("background-color: #{category.color};")
-        td = category.number
-        td = category.name
-        td = category.color
+#categories_table
+  == render 'categories_table'
