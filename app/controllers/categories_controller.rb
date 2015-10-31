@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.find_by(id: category_params[:id]) || Category.new
+    @category = Category.find_by(id: params[:category][:id]) || Category.new
     @category.update_attributes(category_params)
   end
 
@@ -30,6 +30,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:id, :number, :name, :color)
+    params.require(:category).permit(:number, :name, :color)
   end
 end
