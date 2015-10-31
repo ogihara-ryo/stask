@@ -31,4 +31,13 @@ RSpec.describe Category, type: :model do
       expect(Category.all.to_sql).to eq Category.unscoped.order(:number).to_sql
     end
   end
+
+  describe 'バリデーション' do
+    it 'カラーコードのフォーマットは16進数で3桁、または6桁であること' do
+      valid_colorcodes = %w(#123456 #abcdef #123abc #123 #abc #10f)
+      invalid_colorcodes = %w(#1234567 #bcdefg # #1 #1234)
+      is_expected.to allow_value(*valid_colorcodes).for(:color)
+      is_expected.not_to allow_value(*invalid_colorcodes).for(:color)
+    end
+  end
 end
