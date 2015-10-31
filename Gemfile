@@ -108,4 +108,7 @@ group :test do
 
   # コードのカバレッジを計測する
   gem 'simplecov', require: false
+
+  # テスト時にデータベースを綺麗にする
+  gem 'database_cleaner'
 end
