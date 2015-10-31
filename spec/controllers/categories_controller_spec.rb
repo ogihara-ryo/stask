@@ -28,6 +28,15 @@ RSpec.describe CategoriesController, type: :controller do
         expect(category.color).to eq '#ffffff'
       end
     end
+
+    context '不正なパラメーターを指定された場合' do
+      it 'データベースへの反映が行われないこと' do
+        category = FactoryGirl.create(:category)
+        xhr :post, :create, category: { id: category.id, color: '#' }
+        category.reload
+        expect(category.color).not_to eq '#'
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
