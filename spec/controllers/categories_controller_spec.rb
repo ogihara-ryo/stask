@@ -30,6 +30,15 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    it 'Category のレコードが1つ減ること' do
+      category = FactoryGirl.create(:category)
+      expect {
+        xhr :delete, :destroy, id: category.id
+      }.to change(Category, :count).by(-1)
+    end
+  end
+
   describe 'GET #set_id' do
     context '有効なカテゴリーIDを指定された場合' do
       let!(:category) { FactoryGirl.create(:category, number: 1, name: 'Category', color: '#000000') }
