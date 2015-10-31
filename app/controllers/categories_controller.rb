@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_categories, only: %i(index create destroy)
 
   def index
-    @category = Category.new
+    @category = Category.first
   end
 
   def create
