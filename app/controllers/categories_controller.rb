@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    Category.find(params[:id]).destroy
+    @category = Category.find(params[:id]).destroy
   end
 
   def set_id

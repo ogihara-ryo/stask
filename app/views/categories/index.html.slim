@@ -3,11 +3,8 @@
 h1 == yield(:title)
 
 = form_for(@category, html: { class: :'well form-inline' }, remote: true) do |f|
-  - if @category.errors.any?
-    .alert.alert-danger
-      ul
-        - @category.errors.full_messages.each do |msg|
-          li = msg
+  #error == render 'error'
+
   .form-group
     = f.number_field :id, { class: :'form-control', placeholder: t('activerecord.attributes.category.id') }
   .form-group
@@ -18,5 +15,4 @@ h1 == yield(:title)
     = f.color_field :color, { class: :'form-control', placeholder: t('activerecord.attributes.category.color') }
   = f.submit class: :'btn btn-primary'
 
-#categories_table
-  == render 'table'
+#categories_table == render 'table'
