@@ -10,6 +10,10 @@ class CategoriesController < ApplicationController
     @category.update_attributes(category_params)
   end
 
+  def destroy
+    Category.find(params[:id]).destroy
+  end
+
   def set_id
     @category = Category.find_by_id(params[:id].to_i)
     if @category
