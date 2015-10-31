@@ -23,6 +23,11 @@ Style/AndOr:
 Style/BlockComments:
   Enabled: false
 
+# Avoid using {...} for multi-line blocks.
+Style/BlockDelimiters:
+  Exclude:
+    - "spec/**/*"
+
 # Method has too many lines
 MethodLength:
   Exclude:
