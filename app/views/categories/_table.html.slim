@@ -4,9 +4,11 @@ table.table
     th = t 'activerecord.attributes.category.number'
     th = t 'activerecord.attributes.category.name'
     th = t 'activerecord.attributes.category.color'
+    th = t 'label_delete'
     - @categories.each do |category|
       tr style=("background-color: #{category.color};")
         td = category.id
         td = category.number
         td = category.name
         td = category.color
+        td = button_to t('label_delete'), { action: :destroy, id: category }, method: :delete, class: :'btn btn-danger', remote: true

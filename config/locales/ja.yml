@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ja:
+  label_delete: 削除
   title_setting_categories: カテゴリー設定
 
   activerecord:
