@@ -14,4 +14,6 @@ class Category < ActiveRecord::Base
   has_many :tasks
 
   default_scope { order(:number) }
+
+  validates :color, format: { with: /\A#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\Z/ }
 end
