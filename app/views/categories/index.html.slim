@@ -2,7 +2,7 @@
 
 h1 == yield(:title)
 
-= form_for(@category, html: { class: :'well form-inline' }, remote: true) do |f|
+= form_for(@category, html: { class: :'well form-inline' }, url: { action: :create }, method: :post, remote: true) do |f|
   #error == render 'error'
 
   .form-group
