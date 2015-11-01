@@ -19,9 +19,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :categories, only: [:index, :create, :destroy] do
-    collection do
-      get 'set_form', to: 'categories#set_form'
-    end
+    get 'set_form', to: 'categories#set_form', on: :collection
   end
 
   # Example resource route with options:
