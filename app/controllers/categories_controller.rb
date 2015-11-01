@@ -14,15 +14,6 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(id: params[:id]).destroy
   end
 
-  def set_id
-    @category = Category.find_by(id: params[:id])
-    if @category
-      render json: @category and return if request.xhr?
-    else
-      render nothing: true
-    end
-  end
-
   def set_form
     @category = Category.find_by(id: params[:id])
     if @category

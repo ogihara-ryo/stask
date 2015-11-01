@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :categories, only: [:index, :create, :destroy] do
     collection do
-      get 'set_id', to: 'categories#set_id'
       get 'set_form', to: 'categories#set_form'
     end
   end
