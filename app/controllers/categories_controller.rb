@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   def set_id
     @category = Category.find_by(id: params[:id])
     if @category
-      render json: @category.to_json and return if request.xhr?
+      render json: @category and return if request.xhr?
     else
       render nothing: true
     end
