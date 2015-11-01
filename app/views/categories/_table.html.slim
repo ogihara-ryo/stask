@@ -6,7 +6,7 @@ table.table
     th = t 'activerecord.attributes.category.color'
     th = t 'label_delete'
     - @categories.each do |category|
-      tr style=("background-color: #{category.color};")
+      tr style="background-color: #{category.color}; cursor: pointer;" data-link='set_form'
         td = category.id
         td = category.number
         td = category.name
