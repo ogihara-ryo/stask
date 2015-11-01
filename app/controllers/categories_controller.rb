@@ -11,11 +11,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id]).destroy
+    @category = Category.find_by(id: params[:id]).destroy
   end
 
   def set_id
-    @category = Category.find_by_id(params[:id].to_i)
+    @category = Category.find_by(id: params[:id])
     if @category
       render json: @category.to_json and return if request.xhr?
     else
