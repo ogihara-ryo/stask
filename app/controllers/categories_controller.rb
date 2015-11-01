@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     if @category
       render json: @category and return if request.xhr?
     else
-      render nothing: true
+      render json: { id: Category.new_id } and return request.xhr?
     end
   end
 

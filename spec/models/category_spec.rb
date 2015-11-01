@@ -40,4 +40,21 @@ RSpec.describe Category, type: :model do
       is_expected.not_to allow_value(*invalid_colorcodes).for(:color)
     end
   end
+
+  describe 'self.new_id' do
+    context 'Category にレコードが登録されている場合' do
+      it '次の ID を返すこと' do
+        DatabaseCleaner.clean_with(:truncation)
+        FactoryGirl.create(:category)
+        expect(Category.new_id).to eq 2
+      end
+    end
+
+    context 'Category にレコードが登録されていない場合' do
+      it '1 を返すこと' do
+        DatabaseCleaner.clean_with(:truncation)
+        expect(Category.new_id).to eq 1
+      end
+    end
+  end
 end

@@ -16,4 +16,8 @@ class Category < ActiveRecord::Base
   default_scope { order(:number) }
 
   validates :color, format: { with: /\A#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\Z/ }
+
+  def self.new_id
+    last.try(:id).to_i + 1
+  end
 end
