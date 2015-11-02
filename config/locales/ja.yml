@@ -25,6 +25,16 @@ ja:
 
   activerecord:
     attributes:
+      task:
+        id_per_days: ID
+        target: 日付
+        name: タスク名
+        priority: 優先度
+        category: カテゴリー
+        estimate_hour: 見積もり[h]
+        started_at: 開始時刻
+        finished_at: 終了時刻
+
       category:
         id: ID
         number: 順番
