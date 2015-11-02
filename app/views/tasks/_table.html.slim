@@ -1,0 +1,18 @@
+table.table
+  tr
+    th = t 'activerecord.attributes.task.id_per_days'
+    th = t 'activerecord.attributes.task.name'
+    th = t 'activerecord.attributes.task.priority'
+    th = t 'activerecord.attributes.task.category'
+    th = t 'activerecord.attributes.task.estimate_hour'
+    th = t 'activerecord.attributes.task.started_at'
+    th = t 'activerecord.attributes.task.finished_at'
+    - @tasks.each do |task|
+      tr style="background-color: #{task.category.try(:color)}; cursor: pointer;" data-link='set_form'
+        td = task.id_per_days
+        td = task.name
+        td = task.priority
+        td = task.category
+        td = task.estimate_hour
+        td = task.started_at
+        td = task.finished_at

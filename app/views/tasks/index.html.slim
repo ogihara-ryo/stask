@@ -1,0 +1,17 @@
+= form_for(@task, html: { class: :'well form-inline' }, url: { action: :create }, method: :post, remote: true) do |f|
+  #error == render 'error'
+
+  .form-group
+    = f.number_field :id_per_days, { class: :'form-control', placeholder: t('activerecord.attributes.task.id_per_days') }
+  .form-group
+    = f.text_field :name, {class: :'form-control', placeholder: t('activerecord.attributes.task.name')}
+  .form-group
+    = f.number_field :priority, {class: :'form-control', placeholder: t('activerecord.attributes.task.priority')}
+  .form-group
+    = f.number_field :category, {class: :'form-control', placeholder: t('activerecord.attributes.task.category')}
+  .form-group
+    = f.number_field :estimate_hour, {class: :'form-control', placeholder: t('activerecord.attributes.task.estimate_hour')}
+  .form-group
+    = f.datetime_field :started_at, {class: :'form-control', placeholder: t('activerecord.attributes.task.started_at')}
+
+#tasks_table == render 'table'
