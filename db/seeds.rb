@@ -15,16 +15,18 @@ Category.create([
 
 Task.delete_all
 1.upto(4) do |i|
-  # 昨日
-  Task.create(id_per_days: i, target: Time.zone.yesterday, name: "タスク#{i}", priority: i,
-              category: Category.find_by(number: i),
-              estimate_hour: i + 0.5, started_at: (5 - i).hour.ago, finished_at: (4 - i).hour.ago)
-  # 今日
-  Task.create(id_per_days: i, target: Time.zone.today, name: "タスク#{i}", priority: i,
-              category: Category.find_by(number: i),
-              estimate_hour: i + 0.5, started_at: (5 - i).hour.ago)
-  # 明日
-  Task.create(id_per_days: i, target: Time.zone.tomorrow, name: "タスク#{i}", priority: i,
-              category: Category.find_by(number: i),
-              estimate_hour: i + 0.5, started_at: (5 - i).hour.ago)
+  Task.create([
+    # 昨日
+    { id_per_days: i, target: Time.zone.yesterday, name: "タスク#{i}", priority: i,
+      category: Category.find_by(number: i),
+      estimate_hour: i + 0.5, started_at: (5 - i).hour.ago, finished_at: (4 - i).hour.ago },
+    # 今日
+    { id_per_days: i, target: Time.zone.today, name: "タスク#{i}", priority: i,
+      category: Category.find_by(number: i),
+      estimate_hour: i + 0.5, started_at: (5 - i).hour.ago },
+    # 明日
+    { id_per_days: i, target: Time.zone.tomorrow, name: "タスク#{i}", priority: i,
+      category: Category.find_by(number: i),
+      estimate_hour: i + 0.5, started_at: (5 - i).hour.ago }
+  ])
 end
