@@ -35,4 +35,10 @@ RSpec.describe Task, type: :model do
   describe 'アソシエーション' do
     it { is_expected.to belong_to(:category) }
   end
+
+  describe 'スコープ' do
+    it 'デフォルトの並び順が id_per_days の昇順であること' do
+      expect(Task.all.to_sql).to eq Task.unscoped.order(:id_per_days).to_sql
+    end
+  end
 end
