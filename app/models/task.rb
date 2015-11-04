@@ -19,4 +19,6 @@ class Task < ActiveRecord::Base
   belongs_to :category
 
   default_scope { order(:id_per_days) }
+
+  scope :when, ->(date) { where(target: date) }
 end
