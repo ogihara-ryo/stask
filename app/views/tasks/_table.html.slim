@@ -12,7 +12,7 @@ table.table
         td = task.id_per_days
         td = task.name
         td = task.priority
-        td = task.category
+        td = task.category.name
         td = task.estimate_hour
         td = task.started_at.strftime('%H:%M')
         td = task.finished_at.try(:strftime, '%H:%M')
