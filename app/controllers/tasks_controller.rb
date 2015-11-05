@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_tasks, only: %i(index)
 
   def index
-    @task = Task.first
+    @task = Task.first || Task.new
   end
 
   private
