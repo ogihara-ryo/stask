@@ -8,7 +8,7 @@
   .form-group
     = f.number_field :priority, { class: :'form-control', placeholder: t('activerecord.attributes.task.priority') }
   .form-group
-    = f.collection_select :category_id, @categories, :id, :name, {}, class: :'form-control'
+    = f.collection_select :category, @categories, :id, :name, {}, class: :'form-control'
   .form-group
     = f.number_field :estimate_hour, { class: :'form-control', placeholder: t('activerecord.attributes.task.estimate_hour') }
   .form-group
