@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Category.delete_all
+Category.connection.execute(%|SELECT setval ('categories_id_seq', 1, false)|)
 Category.create([
   { number: 1, name: 'カテゴリー1', color: '#d8eecf' },
   { number: 2, name: 'カテゴリー2', color: '#d1e8f4' },
@@ -14,6 +15,7 @@ Category.create([
 ])
 
 Task.delete_all
+Task.connection.execute(%|SELECT setval ('tasks_id_seq', 1, false)|)
 1.upto(4) do |i|
   Task.create([
     # 昨日
