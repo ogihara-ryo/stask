@@ -3,13 +3,13 @@ class TasksController < ApplicationController
   before_action :set_tasks, only: %i(index)
 
   def index
-    @task = Task.first || Task.new
+    @task = @tasks.first || Task.new
   end
 
   private
 
   def set_tasks
-    @tasks = Task.all
+    @tasks = Task.when(Time.zone.today)
   end
 
   def set_categories
