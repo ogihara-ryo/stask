@@ -22,6 +22,7 @@
 ja:
   label_delete: 削除
   title_setting_categories: カテゴリー設定
+  button_submit: 確定
 
   activerecord:
     attributes:
